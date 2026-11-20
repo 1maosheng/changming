@@ -1,0 +1,49 @@
+# cordis.patch.yml 模板 —— 复制成同目录的 cordis.patch.yml，把 <…> 换成你机器上的真值。
+#
+#   <node>  → `which node` 的输出（例如 /usr/local/bin/node）
+#   <src>   → 本仓库 src/ 的绝对路径（mcp/webai-mcp.mjs 就在它下面）
+#
+# 不需要「网页版当工具」的话，只留上面 ui-settings-general 一条就能跑。
+
+- id: ui-settings-general
+  name: "@deepseek-ai/dsh-client-ui-settings-general"
+  config:
+    welcomeNoticeVersion: 2026-09-28.1
+
+# ── 网页版 AI 当工具 ─────────────────────────────────────────────────────
+# 每个站一条：引擎起 `mcp/webai-mcp.mjs --site <站>`，把它的 ask 工具挂到 ctx.tools 上，
+# 模型看到的名字是 mcp__webai_<站>__ask。前提=工作台开着、且那个站已在顶栏登录过。
+# Kimi 暂时不接（打不进输入框）。不想要哪一条就删掉，或在 MCP 面板里关掉。
+- insert:
+    - id: mcp-webai-deepseek
+      name: "@deepseek-ai/dsh-mcp-client"
+      config:
+        serverName: webai_deepseek       # 只能 [A-Za-z0-9_-]，同一 scope 内唯一
+        transport: stdio
+        command: <node>
+        args: ['<src>/mcp/webai-mcp.mjs', '--site', 'deepseek']
+        cwd: <src>
+    - id: mcp-webai-doubao
+      name: "@deepseek-ai/dsh-mcp-client"
+      config:
+        serverName: webai_doubao
+        transport: stdio
+        command: <node>
+        args: ['<src>/mcp/webai-mcp.mjs', '--site', 'doubao']
+        cwd: <src>
+    - id: mcp-webai-tongyi
+      name: "@deepseek-ai/dsh-mcp-client"
+      config:
+        serverName: webai_tongyi
+        transport: stdio
+        command: <node>
+        args: ['<src>/mcp/webai-mcp.mjs', '--site', 'tongyi']
+        cwd: <src>
+    - id: mcp-webai-chatglm
+      name: "@deepseek-ai/dsh-mcp-client"
+      config:
+        serverName: webai_chatglm
+        transport: stdio
+        command: <node>
+        args: ['<src>/mcp/webai-mcp.mjs', '--site', 'chatglm']
+        cwd: <src>

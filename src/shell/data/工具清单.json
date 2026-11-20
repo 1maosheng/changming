@@ -1,0 +1,212 @@
+{
+ "updated": "2026-11-20 15:58",
+ "engine": "engine",
+ "note": "静态扫描引擎源码（packages/**/tool-*）；不反映 profile 是否挂载、MCP 是否开启。引擎升级后重跑本脚本。",
+ "groups": [
+  {
+   "title": "文件与检索",
+   "note": "3 个",
+   "sections": [
+    {
+     "title": "",
+     "items": [
+      {
+       "name": "read / write / edit / read_image",
+       "tag": "",
+       "plain": "读写文件：整篇读、整段替换、按行改",
+       "where": "engine/packages/**/tool-fs"
+      },
+      {
+       "name": "glob / grep",
+       "tag": "",
+       "plain": "找文件（按路径通配）/ 搜内容（按正则）",
+       "where": "engine/packages/**/tool-fs-search"
+      },
+      {
+       "name": "str_replace_editor",
+       "tag": "",
+       "plain": "按行号/字符串编辑文件（编辑器式）",
+       "where": "engine/packages/**/tool-str-replace-editor"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "终端与后台",
+   "note": "6 个",
+   "sections": [
+    {
+     "title": "",
+     "items": [
+      {
+       "name": "terminal",
+       "tag": "",
+       "plain": "开/读/关交互式终端会话",
+       "where": "engine/packages/**/tool-terminal"
+      },
+      {
+       "name": "job_list / job_output / job_kill",
+       "tag": "",
+       "plain": "后台任务：列出来 / 读输出 / 杀掉",
+       "where": "engine/packages/**/tool-jobs"
+      },
+      {
+       "name": "bash",
+       "tag": "",
+       "plain": "跑一条 shell 命令，拿 stdout/stderr 和退出码",
+       "where": "engine/packages/**/tool-bash"
+      },
+      {
+       "name": "bash_persistent",
+       "tag": "",
+       "plain": "常驻 shell 会话：cd/变量跨命令保留",
+       "where": "engine/packages/**/tool-bash-persistent"
+      },
+      {
+       "name": "pwsh",
+       "tag": "",
+       "plain": "跑一条 PowerShell 命令（Windows）",
+       "where": "engine/packages/**/tool-pwsh"
+      },
+      {
+       "name": "pwsh_persistent",
+       "tag": "",
+       "plain": "常驻 PowerShell 会话",
+       "where": "engine/packages/**/tool-pwsh-persistent"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "任务 / 子代理 / 编排",
+   "note": "8 个",
+   "sections": [
+    {
+     "title": "",
+     "items": [
+      {
+       "name": "ralph",
+       "tag": "",
+       "plain": "反复自我迭代直到达标",
+       "where": "engine/packages/**/tool-ralph"
+      },
+      {
+       "name": "session_query",
+       "tag": "",
+       "plain": "翻历史会话记录",
+       "where": "engine/packages/**/tool-session-query"
+      },
+      {
+       "name": "create_goal / get_goal / update_goal",
+       "tag": "",
+       "plain": "长跑目标：跨轮次自动续跑，可暂停/完成",
+       "where": "engine/packages/**/tool-goal"
+      },
+      {
+       "name": "schedule_create / schedule_update / schedule_delete / schedule_list",
+       "tag": "",
+       "plain": "定时提醒：几分钟后 / 每天 / 每周 / cron",
+       "where": "engine/packages/**/tool-schedule"
+      },
+      {
+       "name": "subagent / subagent_fork",
+       "tag": "",
+       "plain": "派子代理干独立活（自带上下文，只回结果）",
+       "where": "engine/packages/**/tool-subagent"
+      },
+      {
+       "name": "list_agents / send_message / interrupt_agent",
+       "tag": "",
+       "plain": "管子代理：列/追问/打断",
+       "where": "engine/packages/**/tool-subagent-control"
+      },
+      {
+       "name": "todo_write",
+       "tag": "",
+       "plain": "任务清单：多步计划、标进行中、打勾",
+       "where": "engine/packages/**/tool-todo"
+      },
+      {
+       "name": "workflow",
+       "tag": "",
+       "plain": "用 JS 脚本编排一大批子代理（扇出/流水线）",
+       "where": "engine/packages/**/tool-workflow"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "网页与代码智能",
+   "note": "2 个",
+   "sections": [
+    {
+     "title": "",
+     "items": [
+      {
+       "name": "lsp",
+       "tag": "",
+       "plain": "语言服务：跳定义、找引用、看诊断",
+       "where": "engine/packages/**/tool-lsp"
+      },
+      {
+       "name": "web_search / web_fetch",
+       "tag": "",
+       "plain": "联网搜 / 抓网页正文",
+       "where": "engine/packages/**/tool-web"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "交互与其他",
+   "note": "6 个",
+   "sections": [
+    {
+     "title": "",
+     "items": [
+      {
+       "name": "present",
+       "tag": "",
+       "plain": "把文件登记成\"交付物\"给用户看",
+       "where": "engine/packages/**/tool-present"
+      },
+      {
+       "name": "cordis",
+       "tag": "",
+       "plain": "查/改引擎自身插件树",
+       "where": "engine/packages/**/tool-cordis"
+      },
+      {
+       "name": "ask_user_question",
+       "tag": "",
+       "plain": "拿不准时反问用户（给选项）",
+       "where": "engine/packages/**/tool-ask-user"
+      },
+      {
+       "name": "working_directory",
+       "tag": "",
+       "plain": "读/切当前工作目录",
+       "where": "engine/packages/**/tool-working-directory"
+      },
+      {
+       "name": "skill",
+       "tag": "",
+       "plain": "加载技能（预设的操作手册）",
+       "where": "engine/packages/**/tool-skill"
+      },
+      {
+       "name": "workspace_dependencies",
+       "tag": "",
+       "plain": "装/查项目依赖",
+       "where": "engine/packages/**/tool-workspace-dependencies"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,35 @@
+{
+ "_说明": "新场景模板。复制成 scenarios/<场景id>.json 再改；文件名以 _ 开头的不会出现在场景列表里（main.js / sessions.mjs / check-gui.mjs 都跳过）。sessionId 先留空，跑 建会话.mjs --bind 会自动填。",
+ "id": "translate",
+ "name": "翻译",
+ "description": "翻译：左边 = 记忆神经元（只读），右边 = 内置 AI 会话「翻译」。改完 description 会显示在场景切换处，写清楚这个场景干什么、不干什么。",
+ "layout": "grid",
+ "theme": "dark",
+ "panels": [
+  {
+   "id": "translate-neuron",
+   "title": "记忆神经元",
+   "sub": "拖拽旋转 · 滚轮缩放 · 点击节点看详情 · 搜索过滤（只读，不改任何文件）",
+   "type": "neuron",
+   "col": 1,
+   "row": 1,
+   "w": 3,
+   "h": 5
+  },
+  {
+   "id": "translate-chat",
+   "title": "AI·翻译",
+   "sub": "",
+   "type": "harness",
+   "col": 4,
+   "row": 1,
+   "w": 1,
+   "h": 5,
+   "sessionTitle": "翻译",
+   "pinTarget": [
+    "翻译"
+   ],
+   "sessionId": ""
+  }
+ ]
+}

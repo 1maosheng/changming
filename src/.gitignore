@@ -1,0 +1,43 @@
+# 依赖与构建产物
+node_modules/
+.DS_Store
+*.7z
+*.zip
+_临时/
+发布/
+
+# DSH 引擎（自己装一份放这里，不是本仓库的东西）
+engine
+
+# 本机运行数据 —— 别人的机器上由程序自己生成，绝不入库
+data/.dsh/sessions/
+data/.dsh/storages/
+data/.dsh/plugins/
+data/.dsh/skills/
+data/.dsh/场景记忆/
+data/.dsh/.credentials.yaml
+data/.dsh/.anonymous-user-id
+data/.dsh/*.log
+# profile 里只有这三份是「模板」（引擎没有它起不来）；patch 是本机配置，模板见 cordis.patch.example.yml
+data/.dsh/profiles/web/*
+!data/.dsh/profiles/web/cordis.yml
+!data/.dsh/profiles/web/package.json
+!data/.dsh/profiles/web/pnpm-workspace.yaml
+!data/.dsh/profiles/web/cordis.patch.example.yml
+
+# 工作台运行时（窗口位置 / 崩溃记录 / 单实例锁 / 登录态）
+shell/data/electron-profile/
+shell/data/crash-state.json
+shell/data/crash-log.jsonl
+shell/data/start-guard.json
+shell/data/engine-boot-fail.json
+shell/data/windows.json
+shell/data/sidebar-state.json
+shell/data/scene-tab-order.json
+shell/data/blender-embed.cmd.json
+shell/data/.run.lock
+shell/data/.run.pid
+shell/data/.run.beat
+shell/data/.focus.req
+shell/server.log
+shell/captures/
